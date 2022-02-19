@@ -1,4 +1,4 @@
-package com.pss.quick_setup
+package com.pss.jonjung
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.pss.quick_setup.widget.utils
+package com.pss.jonjung.widget.utils
 
 object Utils {
     const val BASE_URL = ""
