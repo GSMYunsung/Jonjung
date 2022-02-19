@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "674686011122",
+    "project_id": "jonjung-6f6f7",
+    "storage_bucket": "jonjung-6f6f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674686011122:android:8d6729c4442711c8fa726b",
+        "android_client_info": {
+          "package_name": "com.pss.jonjung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "674686011122-pvemi234h1r1c840pf56j8plh5n8b27t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pss.jonjung",
+            "certificate_hash": "9dbce378c5c3d4f70b65140a750bb2f728509ee8"
+          }
+        },
+        {
+          "client_id": "674686011122-4tom2mube1qivu8svqpedg8ldo3o6rld.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA55-1hYcTYQ8xuWEYyZF9f1o3WgpqkdQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "674686011122-4tom2mube1qivu8svqpedg8ldo3o6rld.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
