@@ -1,6 +1,7 @@
 package com.pss.jonjung.view.adapter
 
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,11 +13,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.pss.jonjung.R
 import com.pss.jonjung.data.db.entity.Post
 import com.pss.jonjung.viewmodel.PostViewModel
+import com.squareup.okhttp.Dispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.internal.wait
+import javax.sql.DataSource
 
 class MainViewPagerAdapter(postList: ArrayList<Post>, fragment : Fragment, mainViewModel : PostViewModel ) : RecyclerView.Adapter<MainViewPagerAdapter.PagerViewHolder>() {
 
@@ -29,18 +39,50 @@ class MainViewPagerAdapter(postList: ArrayList<Post>, fragment : Fragment, mainV
     override fun getItemCount(): Int = item.size
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
-        holder.title.setText(item.get(position).title)
-        holder.content.setText(item.get(position).content)
+        holder.title.text = item.get(position).title
+        holder.content.text = item.get(position).content
 
-            if(item.get(position).photoIs){
-                mainViewModel.getPhoto(mainViewModel.postList.get(position).title)
+        for(i in 0 until item.size)
+        {
+            if(item[i].photoIs){
+
+                mainViewModel.getPhoto(mainViewModel.postList[i].title)
+
+
 
                 Glide.with(fragment)
                     .load(mainViewModel.photoUri.value)
                     .apply(RequestOptions.bitmapTransform(RoundedCorners(40)))
+                    .listener(object : RequestListener<Drawable> {
+
+                        override fun onResourceReady(
+                            resource: Drawable?,
+                            model: Any?,
+                            target: com.bumptech.glide.request.target.Target<Drawable>?,
+                            dataSource: com.bumptech.glide.load.DataSource?,
+                            isFirstResource: Boolean
+                        ): Boolean {
+
+
+
+                            return false
+                        }
+
+                        override fun onLoadFailed(
+                            e: GlideException?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            isFirstResource: Boolean
+                        ): Boolean {
+
+
+                            return false
+                        }
+                    })
                     .into(holder.img)
 
                 holder.img.setBackgroundColor(Color.WHITE)
+            }
         }
     }
 
