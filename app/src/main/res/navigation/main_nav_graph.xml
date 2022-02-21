@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_mainFragment_to_boardWriteFragment"
             app:destination="@id/boardWriteFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_toDayRecoardStarFragment"
+            app:destination="@id/toDayRecoardStarFragment" />
     </fragment>
     <fragment
         android:id="@+id/boardWriteFragment"
@@ -19,5 +22,30 @@
         <action
             android:id="@+id/action_boardWriteFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDayRecoardStarFragment"
+        android:name="com.pss.jonjung.view.ToDayRecoardStarFragment"
+        android:label="ToDayRecoardStarFragment" >
+        <action
+            android:id="@+id/action_toDayRecoardStarFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_toDayRecoardStarFragment_to_toDayRecordWriteFragment"
+            app:destination="@id/toDayRecordWriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDayRecordWriteFragment"
+        android:name="com.pss.jonjung.view.ToDayRecordWriteFragment"
+        android:label="ToDayRecordWriteFragment" >
+        <action
+            android:id="@+id/action_toDayRecordWriteFragment_to_toDayRecoardStarFragment"
+            app:destination="@id/toDayRecoardStarFragment" />
+        <action
+            android:id="@+id/action_toDayRecordWriteFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_toDayRecordWriteFragment_to_toDayRecoardStarFragment2"
+            app:destination="@id/toDayRecoardStarFragment" />
     </fragment>
 </navigation>
