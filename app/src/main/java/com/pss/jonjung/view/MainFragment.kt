@@ -45,20 +45,17 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
         binding.noticeBoardTextview.setOnClickListener {
             notice()
-            Log.d("bindg",mainViewModel.selectText.value.toString())
         }
 
         binding.cheeringVideoTextview.setOnClickListener {
 
             cheering()
-            Log.d("bindg",mainViewModel.selectText.value.toString())
 
         }
 
         binding.todayRecordTextview.setOnClickListener {
 
             record()
-            Log.d("bindg",mainViewModel.selectText.value.toString())
 
         }
 
@@ -69,6 +66,15 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         binding.imageView2.setOnClickListener {
             requireView().findNavController().navigate(R.id.action_mainFragment_to_toDayRecoardStarFragment)
         }
+
+        binding.imageview2Textveiw.setOnClickListener {
+            requireView().findNavController().navigate(R.id.action_mainFragment_to_toDayRecoardStarFragment)
+        }
+
+        binding.videoImageview.setOnClickListener {
+            requireView().findNavController().navigate(R.id.action_mainFragment_to_videoFragment)
+        }
+
 
     }
 
@@ -89,6 +95,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         binding.imageview2Textveiw.visibility = View.VISIBLE
 
         visNotice()
+        visVideo()
 
 
     }
@@ -106,6 +113,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         visRecord()
         visNotice()
 
+        binding.videoImageview.visibility = View.VISIBLE
+        binding.videoTextview.visibility = View.VISIBLE
+
         binding.cheeringVideoTextview.setTextColor(Color.BLACK)
 
     }
@@ -119,6 +129,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         transaction.commit()
 
         visRecord()
+        visVideo()
 
         binding.adsf.visibility = View.VISIBLE
         binding.adsfTextview.visibility = View.VISIBLE
@@ -136,5 +147,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
     private fun visRecord(){
         binding.imageView2.visibility = View.GONE
         binding.imageview2Textveiw.visibility = View.GONE
+    }
+
+    private fun visVideo(){
+        binding.videoImageview.visibility = View.GONE
+        binding.videoTextview.visibility = View.GONE
     }
 }

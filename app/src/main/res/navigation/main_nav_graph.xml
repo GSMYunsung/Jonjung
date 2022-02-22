@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_mainFragment_to_toDayRecoardStarFragment"
             app:destination="@id/toDayRecoardStarFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
     </fragment>
     <fragment
         android:id="@+id/boardWriteFragment"
@@ -47,5 +50,13 @@
         <action
             android:id="@+id/action_toDayRecordWriteFragment_to_toDayRecoardStarFragment2"
             app:destination="@id/toDayRecoardStarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.pss.jonjung.view.VideoFragment"
+        android:label="VideoFragment" >
+        <action
+            android:id="@+id/action_videoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

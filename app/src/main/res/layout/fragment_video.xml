@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+        tools:context=".view.CheeringFragment">
+
+        <ImageView
+            android:id="@+id/back_imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <VideoView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="30dp"
+            android:id="@+id/video_payer"
+            app:layout_constraintBottom_toTopOf="@+id/videoName_editText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="동영상 업로드"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/back_imageView"
+            app:layout_constraintStart_toEndOf="@+id/back_imageView"
+            app:layout_constraintTop_toTopOf="@+id/back_imageView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+
+            android:id="@+id/videoName_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="44dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:hint="동영상의 이름을 지어주세요!"
+            android:textColor="@color/black"
+            android:textColorHint="#dbdbdb"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/upload_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/upload_button"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/main_button"
+            android:elevation="3dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="업로드"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/selcect_button"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/main_button"
+            android:elevation="3dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="동영상 선택"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/upload_button" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

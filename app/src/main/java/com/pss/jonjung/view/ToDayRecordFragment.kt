@@ -25,6 +25,8 @@ class ToDayRecordFragment : BaseFragment<FragmentToDayRecordBinding>(R.layout.fr
 
     override fun init() {
 
+        mainViewModel.getToday()
+
         mainViewModel.notRecoard.observe(this,{
 
             if(mainViewModel.notRecoard.value == true){
@@ -37,8 +39,6 @@ class ToDayRecordFragment : BaseFragment<FragmentToDayRecordBinding>(R.layout.fr
             }
 
         })
-
-        mainViewModel.getToday()
 
         mainViewModel.eventGetTodayPost.observe(this, {
 
