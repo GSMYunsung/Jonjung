@@ -32,7 +32,7 @@
             android:id="@+id/imageView3"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/star"
+            android:src="@drawable/sun"
             android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/star_textview"
             app:layout_constraintEnd_toStartOf="@+id/star_textview"
