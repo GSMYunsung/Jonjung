@@ -18,15 +18,17 @@
         <entry key="app/src/main/res/layout/fragment_cheering.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_notice_board.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/fragment_notice_board_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_to_day_recoard_star.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_to_day_record.xml" value="0.1890625" />
         <entry key="app/src/main/res/layout/fragment_to_day_record_write.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_today_record_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_video.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item.xml" value="0.1859375" />
         <entry key="app/src/main/res/layout/star_dialog.xml" value="0.165" />
         <entry key="app/src/main/res/layout/to_day_record_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/video_dialog.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/video_item.xml" value="0.2180921052631579" />
+        <entry key="app/src/main/res/layout/video_item.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/cocopam.xml" value="0.12960526315789472" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.12960526315789472" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.12960526315789472" />
