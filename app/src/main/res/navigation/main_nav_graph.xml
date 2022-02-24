@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_mainFragment_to_todayRecordViewFragment"
             app:destination="@id/todayRecordViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_noticeBoardViewFragment"
+            app:destination="@id/noticeBoardViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/boardWriteFragment"
@@ -68,6 +71,14 @@
         android:label="TodayRecordViewFragment" >
         <action
             android:id="@+id/action_todayRecordViewFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noticeBoardViewFragment"
+        android:name="com.pss.jonjung.view.NoticeBoardViewFragment"
+        android:label="NoticeBoardViewFragment" >
+        <action
+            android:id="@+id/action_noticeBoardViewFragment_to_mainFragment2"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
