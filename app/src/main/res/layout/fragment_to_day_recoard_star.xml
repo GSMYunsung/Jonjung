@@ -28,57 +28,88 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/pretendard_bold"
-            android:text="오늘하루 별 등급은, \n어떠셨나요?"
+            android:text="오늘하루 감정은, \n어떠셨나요?"
             android:textColor="@color/black"
-            android:textSize="35dp"
+            android:textSize="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/back_imageView" />
 
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/rating_bar"
-            android:layout_marginTop="116dp"
-            android:progressBackgroundTint="#dbdbdb"
-            android:isIndicator="false"
-            android:progressTint="#e5e022"
-            android:layout_marginRight="20dp"
-            android:rating="5"
-            android:stepSize="0.5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.485"
+        <ImageView
+            android:id="@+id/sun_imageview"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/wather_background"
+            android:padding="13dp"
+            android:src="@drawable/sun"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <ImageView
+            android:id="@+id/cloud_imageview"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/cloud"
+            android:background="@drawable/main_button"
+            android:padding="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sun_imageview"
+            app:layout_constraintStart_toEndOf="@+id/sun_imageview"
+            app:layout_constraintTop_toTopOf="@+id/sun_imageview" />
+
+        <ImageView
+            android:id="@+id/rain_imageview"
+            android:layout_width="70dp"
+            android:padding="15dp"
+            android:background="@drawable/main_button"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/rain"
+            app:layout_constraintBottom_toBottomOf="@+id/cloud_imageview"
+            app:layout_constraintStart_toEndOf="@+id/cloud_imageview"
+            app:layout_constraintTop_toTopOf="@+id/cloud_imageview" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="68dp"
             android:fontFamily="@font/pretendard_bold"
-            android:text="오늘의 별등급"
+            android:text="오늘의 감정"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/rating_bar"
-            app:layout_constraintHorizontal_bias="0.511"
-            app:layout_constraintStart_toStartOf="@+id/rating_bar"
-            app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sun_imageview" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/pretendard_bold"
-            android:text="5.0"
-            android:textColor="@color/black"
-            android:id="@+id/star_textview"
-            android:textSize="20dp"
+        <ImageView
+            android:id="@+id/wather_imageview"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/sun"
+            android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/star_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="해가 쨍쨍 오늘은 반짝반짝"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/next_button"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/wather_imageview"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/next_button"
