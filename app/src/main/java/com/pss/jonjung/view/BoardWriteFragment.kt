@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -13,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
@@ -28,6 +30,7 @@ import com.pss.jonjung.view.adapter.MainViewPagerAdapter
 import com.pss.jonjung.viewmodel.PostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.jar.Manifest
 
 
@@ -40,6 +43,7 @@ class BoardWriteFragment : BaseFragment<FragmentBoardWriteBinding>(R.layout.frag
 
     private val postViewModel by activityViewModels<PostViewModel>()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun init() {
 
         binding.imageView.setOnClickListener { this@BoardWriteFragment.findNavController().popBackStack() }
@@ -47,7 +51,8 @@ class BoardWriteFragment : BaseFragment<FragmentBoardWriteBinding>(R.layout.frag
         binding.uploadButton.setOnClickListener {
             if(!TextUtils.isEmpty(binding.titleEditText.text) && !TextUtils.isEmpty(binding.contentEdittext.text) )
             {
-                postViewModel.setPost(Post(binding.titleEditText.text.toString(),binding.contentEdittext.text.toString(),postViewModel.isImageTrue.value!!,System.currentTimeMillis().toString()))
+                postViewModel.setPost(Post(binding.titleEditText.text.toString(),binding.contentEdittext.text.toString(),postViewModel.isImageTrue.value!!,System.currentTimeMillis().toString(),
+                    LocalDate.now().toString()))
                 this@BoardWriteFragment.findNavController().popBackStack()
 
                 if(ContextCompat.checkSelfPermission(requireView().context,android.Manifest.permission.READ_EXTERNAL_STORAGE)

@@ -1,5 +1,6 @@
 package com.pss.jonjung.view
 
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -19,12 +21,14 @@ import com.pss.jonjung.databinding.FragmentToDayRecordWriteBinding
 import com.pss.jonjung.view.adapter.ToDayRecordAdapter
 import com.pss.jonjung.viewmodel.PostViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.time.LocalDate
 
 @AndroidEntryPoint
 class ToDayRecordWriteFragment : BaseFragment<FragmentToDayRecordWriteBinding>(R.layout.fragment_to_day_record_write) {
 
     private val mainViewModel by activityViewModels<PostViewModel>()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun init() {
 
         binding.backImageView.setOnClickListener {

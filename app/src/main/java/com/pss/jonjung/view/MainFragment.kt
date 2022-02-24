@@ -44,19 +44,37 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         transaction.commit()
 
         binding.noticeBoardTextview.setOnClickListener {
+
             notice()
+
+            binding.setListAndPageContent.visibility = View.VISIBLE
         }
 
         binding.cheeringVideoTextview.setOnClickListener {
 
             cheering()
 
+            binding.setListAndPageContent.visibility = View.GONE
         }
 
         binding.todayRecordTextview.setOnClickListener {
 
             record()
 
+            binding.setListAndPageContent.visibility = View.GONE
+
+        }
+
+        binding.listImageview.setOnClickListener {
+            binding.listImageview.setBackgroundResource(R.drawable.wather_background)
+            binding.pageImageview.setBackgroundResource(R.drawable.main_button)
+            mainViewModel.listAndPage("list")
+        }
+
+        binding.pageImageview.setOnClickListener {
+            binding.pageImageview.setBackgroundResource(R.drawable.wather_background)
+            binding.listImageview.setBackgroundResource(R.drawable.main_button)
+            mainViewModel.listAndPage("page")
         }
 
         binding.adsf.setOnClickListener {
