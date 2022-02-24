@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
@@ -20,14 +21,14 @@ import com.bumptech.glide.request.target.Target
 import com.pss.jonjung.R
 import com.pss.jonjung.data.db.entity.Post
 import com.pss.jonjung.data.db.entity.TodayPost
-import com.pss.jonjung.view.CustomDialog
 import com.pss.jonjung.viewmodel.PostViewModel
 import org.w3c.dom.Text
 
-class ToDayRecordAdapter(postList: ArrayList<TodayPost>, fragment : Fragment) : RecyclerView.Adapter<ToDayRecordAdapter.PagerViewHolder>() {
+class ToDayRecordAdapter(postList: ArrayList<TodayPost>, fragment : Fragment, viewmodel : PostViewModel) : RecyclerView.Adapter<ToDayRecordAdapter.PagerViewHolder>() {
 
     var item = postList
     var fragment = fragment
+    var viewmodel = viewmodel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PagerViewHolder((parent))
 
@@ -36,10 +37,19 @@ class ToDayRecordAdapter(postList: ArrayList<TodayPost>, fragment : Fragment) : 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
         holder.title.text = item[position].title
 
-        holder.star.text = item[position].star
+        holder.star.text = item[position].wather
+
+        when(item[position].wather)
+        {
+            "sun" -> holder.wather.setImageResource(R.drawable.sun)
+            "cloud" -> holder.wather.setImageResource(R.drawable.cloud)
+            "rain" -> holder.wather.setImageResource(R.drawable.rain)
+        }
 
         holder.starContent.setOnClickListener {
-            CustomDialog(fragment.requireContext()).showDialog(item[position].title,item[position].content)
+            viewmodel.setRecordTitleAndContext(item[position].title,item[position].content)
+            viewmodel.clickWhater(item[position].wather)
+            fragment.requireView().findNavController().navigate(R.id.action_mainFragment_to_todayRecordViewFragment)
         }
 
     }
@@ -50,5 +60,6 @@ class ToDayRecordAdapter(postList: ArrayList<TodayPost>, fragment : Fragment) : 
         val starContent = itemView.findViewById<ConstraintLayout>(R.id.star_content)
         val title = itemView.findViewById<TextView>(R.id.title_textview1)
         val star = itemView.findViewById<TextView>(R.id.star_textview)
+        val wather = itemView.findViewById<ImageView>(R.id.imageView3)
     }
 }

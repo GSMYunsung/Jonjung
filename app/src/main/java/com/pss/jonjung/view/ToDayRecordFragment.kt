@@ -42,7 +42,7 @@ class ToDayRecordFragment : BaseFragment<FragmentToDayRecordBinding>(R.layout.fr
 
         mainViewModel.eventGetTodayPost.observe(this, {
 
-            binding.recyclerView.adapter = ToDayRecordAdapter((mainViewModel.todayPostList),this) // 어댑터 생성
+            binding.recyclerView.adapter = ToDayRecordAdapter((mainViewModel.todayPostList),this,mainViewModel) // 어댑터 생성
             binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         } )
 

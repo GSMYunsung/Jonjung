@@ -38,7 +38,7 @@ class ToDayRecordWriteFragment : BaseFragment<FragmentToDayRecordWriteBinding>(R
                         binding.titleTextview.text.toString(),
                         binding.contentTextview.text.toString(),
                         System.currentTimeMillis().toString(),
-                        mainViewModel.star.value.toString()
+                        mainViewModel.wather.value.toString()
                     )
                 )
 

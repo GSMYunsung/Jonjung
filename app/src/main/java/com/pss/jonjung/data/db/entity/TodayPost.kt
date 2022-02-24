@@ -5,5 +5,5 @@ data class TodayPost
     val title : String = "",
     val content : String = "",
     val time : String = "",
-    val star : String = "0",
+    val wather : String = "0",
 )

@@ -41,6 +41,15 @@ class PostViewModel @Inject constructor(
     val notPost: LiveData<Boolean> get() = _notPost
     private val _notPost = MutableLiveData<Boolean>()
 
+    val clickWather: LiveData<String> get() = _clickWather
+    private val _clickWather = MutableLiveData<String>()
+
+    val recordTitle : LiveData<String> get() = _recordTitle
+    private val _recordTitle = MutableLiveData<String>()
+
+    val recordContext : LiveData<String> get() = _recordContext
+    private val _recordContext = MutableLiveData<String>()
+
     val notRecoard : LiveData<Boolean> get() = _notRecoard
     private val _notRecoard = MutableLiveData<Boolean>()
 
@@ -62,8 +71,8 @@ class PostViewModel @Inject constructor(
     val selectText: LiveData<String> get() = _selectText
     private val _selectText = MutableLiveData<String>()
 
-    val star: LiveData<String> get() = _star
-    private val _star = MutableLiveData<String>()
+    val wather: LiveData<String> get() = _wather
+    private val _wather = MutableLiveData<String>()
 
     val isImageTrue: LiveData<Boolean> get() = _isImageTrue
     private val _isImageTrue = MutableLiveData<Boolean>()
@@ -75,21 +84,33 @@ class PostViewModel @Inject constructor(
     private val _videoUri = MutableLiveData<Uri>()
 
     init {
-        _star.value = "5"
+        _clickWather.value = "sun"
+        _wather.value = "sun"
         _selectText.value = "notice board"
         _isImageTrue.value = false
         _notPost.value = true
         _notVideo.value = true
         _notRecoard.value = true
         _videoUri.value = Uri.parse("")
+        _recordTitle.value = ""
+        _recordContext.value = ""
     }
 
     fun isImageTrue(){
         _isImageTrue.value = true
     }
 
-    fun setStarNum(num : String){
-        _star.value = num
+    fun clickWhater(wather: String){
+        _clickWather.value = wather
+    }
+
+    fun setRecordTitleAndContext(title : String, content : String){
+        _recordTitle.value = title
+        _recordContext.value = content
+    }
+
+    fun setWather(wather : String){
+        _wather.value = wather
     }
 
     fun getPost() = postRepository.getPost()

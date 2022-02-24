@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.pss.jonjung.R
 import com.pss.jonjung.base.BaseFragment
 import com.pss.jonjung.databinding.FragmentToDayRecoardStarBinding
-import com.pss.jonjung.databinding.FragmentToDayRecoardStarBindingImpl
 import com.pss.jonjung.viewmodel.PostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,10 +26,31 @@ class ToDayRecoardStarFragment : BaseFragment<FragmentToDayRecoardStarBinding>(R
             this.findNavController().popBackStack()
         }
 
-        binding.ratingBar.setOnRatingBarChangeListener { ratingBar, fl, b ->
-            mainViewModel.setStarNum(fl.toString())
-            Log.d("coocpam",mainViewModel.star.value.toString())
-            binding.starTextview.text = "${fl}점"
+        binding.sunImageview.setOnClickListener {
+            binding.sunImageview.setBackgroundResource(R.drawable.wather_background)
+            binding.cloudImageview.setBackgroundResource(R.drawable.main_button)
+            binding.rainImageview.setBackgroundResource(R.drawable.main_button)
+            binding.watherImageview.setImageResource(R.drawable.sun)
+
+            mainViewModel.setWather("sun")
+        }
+
+        binding.cloudImageview.setOnClickListener {
+            binding.cloudImageview.setBackgroundResource(R.drawable.wather_background)
+            binding.sunImageview.setBackgroundResource(R.drawable.main_button)
+            binding.rainImageview.setBackgroundResource(R.drawable.main_button)
+            binding.watherImageview.setImageResource(R.drawable.cloud)
+
+            mainViewModel.setWather("cloud")
+        }
+
+        binding.rainImageview.setOnClickListener {
+            binding.rainImageview.setBackgroundResource(R.drawable.wather_background)
+            binding.cloudImageview.setBackgroundResource(R.drawable.main_button)
+            binding.sunImageview.setBackgroundResource(R.drawable.main_button)
+            binding.watherImageview.setImageResource(R.drawable.rain)
+
+            mainViewModel.setWather("rain")
         }
 
         binding.nextButton.setOnClickListener {
