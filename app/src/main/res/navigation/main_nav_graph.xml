@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_mainFragment_to_videoFragment"
             app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_todayRecordViewFragment"
+            app:destination="@id/todayRecordViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/boardWriteFragment"
@@ -57,6 +60,14 @@
         android:label="VideoFragment" >
         <action
             android:id="@+id/action_videoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/todayRecordViewFragment"
+        android:name="com.pss.jonjung.view.TodayRecordViewFragment"
+        android:label="TodayRecordViewFragment" >
+        <action
+            android:id="@+id/action_todayRecordViewFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
