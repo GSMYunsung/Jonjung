@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pss.jonjung.R
 import com.pss.jonjung.data.db.entity.TodayPost
 import com.pss.jonjung.data.db.entity.VideoPost
-import com.pss.jonjung.view.CustomDialog
 import com.pss.jonjung.view.VideoCustiomDialog
 import com.pss.jonjung.viewmodel.PostViewModel
 import kotlinx.coroutines.CoroutineScope
