@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.12960526315789472" />
         <entry key="app/src/main/res/drawable/main_button.xml" value="0.20520833333333333" />
         <entry key="app/src/main/res/drawable/main_button2.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/drawable/wather_background.xml" value="0.12960526315789472" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.11052631578947368" />
         <entry key="app/src/main/res/layout/board_item.xml" value="0.165" />
@@ -17,9 +18,10 @@
         <entry key="app/src/main/res/layout/fragment_cheering.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_notice_board.xml" value="0.1890625" />
-        <entry key="app/src/main/res/layout/fragment_to_day_recoard_star.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_to_day_recoard_star.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_to_day_record.xml" value="0.1890625" />
         <entry key="app/src/main/res/layout/fragment_to_day_record_write.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_today_record_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_video.xml" value="0.165" />
         <entry key="app/src/main/res/layout/star_dialog.xml" value="0.165" />
         <entry key="app/src/main/res/layout/to_day_record_item.xml" value="0.25" />
