@@ -38,8 +38,20 @@ class PostViewModel @Inject constructor(
     lateinit var todayPostList : ArrayList<TodayPost>
     lateinit var videoPostList : ArrayList<VideoPost>
 
+    val listAndPage : LiveData<String> get() = _listAndPage
+    private val _listAndPage = MutableLiveData<String>()
+
+    val boardListDate : LiveData<String> get() = _boardListDate
+    private val _boardListDate = MutableLiveData<String>()
+
+    val BoardListUri : LiveData<Uri> get() = _BoardListUri
+    private val _BoardListUri = MutableLiveData<Uri>()
+
     val notPost: LiveData<Boolean> get() = _notPost
     private val _notPost = MutableLiveData<Boolean>()
+
+    val photois: LiveData<Boolean> get() = _photois
+    private val _photois = MutableLiveData<Boolean>()
 
     val clickWather: LiveData<String> get() = _clickWather
     private val _clickWather = MutableLiveData<String>()
@@ -94,6 +106,20 @@ class PostViewModel @Inject constructor(
         _videoUri.value = Uri.parse("")
         _recordTitle.value = ""
         _recordContext.value = ""
+        _listAndPage.value = "page"
+        _boardListDate.value = ""
+    }
+
+    fun setListAndPageAndPicture(title : String, content : String,date : String,photois : Boolean){
+        _recordTitle.value = title
+        _recordContext.value = content
+        _boardListDate.value = date
+        _photois.value = photois
+//        _BoardListUri.value = uri
+    }
+
+    fun listAndPage(value : String){
+        _listAndPage.value = value
     }
 
     fun isImageTrue(){

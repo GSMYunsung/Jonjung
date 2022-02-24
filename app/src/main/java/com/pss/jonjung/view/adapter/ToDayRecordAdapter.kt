@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
@@ -49,6 +50,7 @@ class ToDayRecordAdapter(postList: ArrayList<TodayPost>, fragment : Fragment, vi
         holder.starContent.setOnClickListener {
             viewmodel.setRecordTitleAndContext(item[position].title,item[position].content)
             viewmodel.clickWhater(item[position].wather)
+            Log.d("cocoapm12345",fragment.findNavController().currentDestination?.id.toString())
             fragment.requireView().findNavController().navigate(R.id.action_mainFragment_to_todayRecordViewFragment)
         }
 

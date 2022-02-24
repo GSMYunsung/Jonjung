@@ -20,7 +20,7 @@ class PostRepository @Inject constructor(
     fun setToday(post : TodayPost) = firestore.collection("today_recode").document().set(post)
 
     fun setPhoto(name : String) =  firestorege.reference.child("images")?.child(name)
-    fun getPhoto(name : String) =  firestorege.reference.child("images/$name" + "_.mp4")
+    fun getPhoto(name : String) =  firestorege.reference.child("images/$name" + "_.png")
 
     fun setPVideo(name : String) =  firestorege.reference.child("videos")?.child(name)
     fun getPVideo(name : String) =  firestorege.reference.child("videos/$name" + "_.mp4")

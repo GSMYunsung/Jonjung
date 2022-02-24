@@ -39,8 +39,9 @@ class MainViewPagerAdapter(postList: ArrayList<Post>, fragment : Fragment, mainV
     override fun getItemCount(): Int = item.size
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
-        holder.title.text = item.get(position).title
-        holder.content.text = item.get(position).content
+        holder.title.text = item[position].title
+        holder.content.text = item[position].content
+        holder.date.text = item[position].date
 
         for(i in 0 until item.size)
         {
@@ -92,5 +93,6 @@ class MainViewPagerAdapter(postList: ArrayList<Post>, fragment : Fragment, mainV
         val title = itemView.findViewById<TextView>(R.id.title_textview)
         val img = itemView.findViewById<ImageView>(R.id.card_imageview)
         val content = itemView.findViewById<TextView>(R.id.content_textview)
+        val date =  itemView.findViewById<TextView>(R.id.date_textview)
     }
 }
