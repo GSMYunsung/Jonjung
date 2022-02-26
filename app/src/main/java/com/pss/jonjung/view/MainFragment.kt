@@ -61,6 +61,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
             record()
 
+            mainViewModel.todayre("new")
+
             binding.setListAndPageContent.visibility = View.GONE
 
         }

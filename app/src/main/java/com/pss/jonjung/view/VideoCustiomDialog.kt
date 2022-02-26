@@ -3,11 +3,15 @@ package com.pss.jonjung.view
 import android.app.Dialog
 import android.content.Context
 import android.net.Uri
+import android.util.Log
 import android.view.WindowManager
 import android.widget.*
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import com.pss.jonjung.R
+import com.pss.jonjung.viewmodel.PostViewModel
 
 class VideoCustiomDialog(context: Context) {
     private val dialog = Dialog(context)
@@ -18,7 +22,7 @@ class VideoCustiomDialog(context: Context) {
         onClickListener = listener
     }
 
-    fun showDialog(title : String,context: Context,uri : Uri)
+    fun showDialog(title : String,context: Context,uri : Uri,viewmodel : PostViewModel,fragment : Fragment)
     {
         dialog.setContentView(R.layout.video_dialog)
         dialog.window!!.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT)
@@ -42,6 +46,17 @@ class VideoCustiomDialog(context: Context) {
 
         dialog.findViewById<ImageView>(R.id.back_imageView).setOnClickListener {
             dialog.dismiss()
+        }
+
+        dialog.findViewById<ImageView>(R.id.imageView6).setOnClickListener {
+
+            viewmodel.vidioName.observe(fragment,{
+                viewmodel.deleteVideoPost(viewmodel.videoPost.value!!)
+                viewmodel.deleteVideo(viewmodel.vidioName.value!!)
+                Log.d("cocopam",viewmodel.vidioName.value!!)
+                dialog.dismiss()
+            })
+
         }
 
     }

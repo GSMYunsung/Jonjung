@@ -33,8 +33,11 @@ class CheeringAdapter(postList: ArrayList<VideoPost>, fragment : Fragment, viewm
 
         holder.content.setOnClickListener {
             viewmodel.getVideo(viewmodel.videoPostList[position].title)
+            viewmodel.videoName(viewmodel.videoPostList[position].title)
+            viewmodel.videoPostPosition(viewmodel.videoPostList[position].title)
+
                 CoroutineScope(Dispatchers.Main).launch { delay(1300)
-                VideoCustiomDialog(fragment.requireContext()).showDialog(item[position].title,fragment.requireContext(), viewmodel.videoUri.value!!)
+                VideoCustiomDialog(fragment.requireContext()).showDialog(item[position].title,fragment.requireContext(), viewmodel.videoUri.value!!,viewmodel,fragment)
                 }
         }
 
