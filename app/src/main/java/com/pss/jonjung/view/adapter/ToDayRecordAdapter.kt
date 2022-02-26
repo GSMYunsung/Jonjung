@@ -50,7 +50,8 @@ class ToDayRecordAdapter(postList: ArrayList<TodayPost>, fragment : Fragment, vi
         holder.starContent.setOnClickListener {
             viewmodel.setRecordTitleAndContext(item[position].title,item[position].content)
             viewmodel.clickWhater(item[position].wather)
-            Log.d("cocoapm12345",fragment.findNavController().currentDestination?.id.toString())
+            viewmodel.todayName(item[position].title)
+
             fragment.requireView().findNavController().navigate(R.id.action_mainFragment_to_todayRecordViewFragment)
         }
 

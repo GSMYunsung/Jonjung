@@ -33,25 +33,45 @@ class NoticeBoardViewFragment : BaseFragment<FragmentNoticeBoardViewBinding>(R.l
 
     override fun init() {
 
-        binding.backImageView.setOnClickListener { this.findNavController().popBackStack()  }
+        binding.textView9.setOnClickListener {
+            mainViewModel.deletePost(mainViewModel.recordTitle.value!!)
+            this.findNavController().navigate(R.id.action_noticeBoardViewFragment_to_mainFragment2)
+        }
+
+        binding.textview8.setOnClickListener { this.findNavController().navigate(R.id.action_noticeBoardViewFragment_to_noticeBoardModifyFragment) }
+
+        binding.backImageView.setOnClickListener { this.findNavController().navigate(R.id.action_noticeBoardViewFragment_to_mainFragment2)  }
+
+            mainViewModel.remember(mainViewModel.recordTitle.value!!)
 
             binding.titleTextview2.text = mainViewModel.recordTitle.value
             binding.contentTextview2.text = mainViewModel.recordContext.value
             binding.dateTextview.text = mainViewModel.boardListDate.value
 
-            if(mainViewModel.photois.value == true)
-            {
-                mainViewModel.getPhoto(mainViewModel.recordTitle.value.toString())
+            Log.d("photois",mainViewModel.photois.value.toString())
 
-                Glide.with(this)
-                    .load(mainViewModel.photoUri.value)
-                    .apply(RequestOptions.bitmapTransform(RoundedCorners(40)))
-                    .into(binding.imageView5)
-            }
-            else
-            {
-                binding.imageView5.setImageResource(R.drawable.cople)
-            }
+            mainViewModel.recordTitle.observe(this,{
+
+                if(mainViewModel.photois.value == true)
+                {
+
+                    Log.d("cocopam", mainViewModel.recordTitle.value.toString())
+                    mainViewModel.getPhoto(mainViewModel.recordTitle.value.toString())
+
+                    mainViewModel.photoUri.observe(this,{
+                        Glide.with(this)
+                            .load(mainViewModel.photoUri.value)
+                            .apply(RequestOptions.bitmapTransform(RoundedCorners(40)))
+                            .into(binding.imageView5)
+                    })
+
+                }
+                else
+                {
+                    binding.imageView5.setImageResource(R.drawable.cople)
+                }
+
+            })
 
     }
 

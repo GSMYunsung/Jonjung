@@ -33,7 +33,6 @@ class NoticeBoardAdapter(postList: ArrayList<Post>, fragment : Fragment, viewmod
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
         holder.title.text = item[position].title
         holder.date.text = item[position].date
-        viewmodel.getPhoto("파이팅")
 
         holder.content.setOnClickListener {
 

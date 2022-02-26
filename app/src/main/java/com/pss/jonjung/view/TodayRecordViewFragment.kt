@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pss.jonjung.R
@@ -28,6 +29,19 @@ class TodayRecordViewFragment : BaseFragment<FragmentTodayRecordViewBinding>(R.l
            binding.titleTextview2.text = mainViewModel.recordTitle.value
             binding.contentTextview2.text = mainViewModel.recordContext.value
         })
+
+        binding.textView9.setOnClickListener {
+            mainViewModel.todayName.observe(this,{
+                mainViewModel.deleteToday(mainViewModel.todayName.value!!)
+                requireView().findNavController().navigate(R.id.action_todayRecordViewFragment_to_mainFragment)
+            }) }
+
+        binding.textview8.setOnClickListener {
+            mainViewModel.todayre("old")
+            requireView().findNavController().navigate(R.id.action_todayRecordViewFragment_to_toDayRecoardStarFragment)
+        }
+
+
 
         mainViewModel.clickWather.observe(this,{
 
@@ -53,7 +67,7 @@ class TodayRecordViewFragment : BaseFragment<FragmentTodayRecordViewBinding>(R.l
 
         })
 
-        binding.backImageView.setOnClickListener { this.findNavController().popBackStack() }
+        binding.backImageView.setOnClickListener { this.findNavController().navigate(R.id.action_todayRecordViewFragment_to_mainFragment) }
 
     }
 

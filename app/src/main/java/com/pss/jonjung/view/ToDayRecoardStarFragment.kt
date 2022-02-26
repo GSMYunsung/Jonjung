@@ -26,6 +26,14 @@ class ToDayRecoardStarFragment : BaseFragment<FragmentToDayRecoardStarBinding>(R
             this.findNavController().popBackStack()
         }
 
+        mainViewModel.wather.observe(this,{
+           when(mainViewModel.wather.value){
+               "sun" -> binding.starTextview.text = "해가 쩅쨍 오늘은 반짝반짝"
+               "cloud" -> binding.starTextview.text = "오늘은 구름진날 조금 어두워"
+               "rain" -> binding.starTextview.text = "오늘만은 위로해줘 내마음에 비가내려"
+           }
+        })
+
         binding.sunImageview.setOnClickListener {
             binding.sunImageview.setBackgroundResource(R.drawable.wather_background)
             binding.cloudImageview.setBackgroundResource(R.drawable.main_button)

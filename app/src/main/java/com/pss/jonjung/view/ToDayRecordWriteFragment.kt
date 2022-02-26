@@ -35,22 +35,57 @@ class ToDayRecordWriteFragment : BaseFragment<FragmentToDayRecordWriteBinding>(R
             this.findNavController().popBackStack()
         }
 
+        if(mainViewModel.todayre.value == "old"){
+         binding.titleTextview.setText(mainViewModel.recordTitle.value)
+         binding.contentTextview.setText(mainViewModel.recordContext.value)
+
+        }
+
         binding.nextButton.setOnClickListener {
-            if (!TextUtils.isEmpty(binding.titleTextview.text) && !TextUtils.isEmpty(binding.contentTextview.text)) {
-                mainViewModel.setToday(
-                    TodayPost(
-                        binding.titleTextview.text.toString(),
-                        binding.contentTextview.text.toString(),
-                        System.currentTimeMillis().toString(),
-                        mainViewModel.wather.value.toString()
+            if(mainViewModel.todayre.value == "new")
+            {
+                if (!TextUtils.isEmpty(binding.titleTextview.text) && !TextUtils.isEmpty(binding.contentTextview.text)) {
+                    mainViewModel.setToday(
+                        TodayPost(
+                            binding.titleTextview.text.toString(),
+                            binding.contentTextview.text.toString(),
+                            System.currentTimeMillis().toString(),
+                            mainViewModel.wather.value.toString()
+                        )
                     )
-                )
 
-                requireView().findNavController().navigate(R.id.action_toDayRecordWriteFragment_to_mainFragment)
+                    requireView().findNavController().navigate(R.id.action_toDayRecordWriteFragment_to_todayRecordViewFragment2)
 
+                }
+                else{
+                    Toast.makeText(requireContext(),"제목 , 내용 둘중 하나의 빈칸을 모두 채워주세요!", Toast.LENGTH_SHORT).show()
+                }
             }
-            else{
-                Toast.makeText(requireContext(),"제목 , 내용 둘중 하나의 빈칸을 모두 채워주세요!", Toast.LENGTH_SHORT).show()
+            else
+            {
+                if (!TextUtils.isEmpty(binding.titleTextview.text) && !TextUtils.isEmpty(binding.contentTextview.text)) {
+
+                    mainViewModel.deleteToday(mainViewModel.todayName.value!!)
+
+                    mainViewModel.setToday(
+                        TodayPost(
+                            binding.titleTextview.text.toString(),
+                            binding.contentTextview.text.toString(),
+                            System.currentTimeMillis().toString(),
+                            mainViewModel.wather.value.toString()
+                        )
+                    )
+
+                    mainViewModel.setRecordTitleAndContext(
+                        binding.titleTextview.text.toString(),
+                        binding.contentTextview.text.toString(),)
+
+                    requireView().findNavController().navigate(R.id.action_toDayRecordWriteFragment_to_todayRecordViewFragment2)
+
+                }
+                else{
+                    Toast.makeText(requireContext(),"제목 , 내용 둘중 하나의 빈칸을 모두 채워주세요!", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

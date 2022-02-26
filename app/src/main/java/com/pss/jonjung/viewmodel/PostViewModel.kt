@@ -41,6 +41,18 @@ class PostViewModel @Inject constructor(
     val listAndPage : LiveData<String> get() = _listAndPage
     private val _listAndPage = MutableLiveData<String>()
 
+    val vidioName : LiveData<String> get() = _vidioName
+    private val _vidioName = MutableLiveData<String>()
+
+    val todayName : LiveData<String> get() = _todayName
+    private val _todayName = MutableLiveData<String>()
+
+    val remember : LiveData<String> get() = _remember
+    private val _remember = MutableLiveData<String>()
+
+    val photoChange: LiveData<Boolean> get() = _photoChange
+    private val _photoChange = MutableLiveData<Boolean>()
+
     val boardListDate : LiveData<String> get() = _boardListDate
     private val _boardListDate = MutableLiveData<String>()
 
@@ -55,6 +67,9 @@ class PostViewModel @Inject constructor(
 
     val clickWather: LiveData<String> get() = _clickWather
     private val _clickWather = MutableLiveData<String>()
+
+    val videoPost: LiveData<String> get() = _videoPost
+    private val _videoPost = MutableLiveData<String>()
 
     val recordTitle : LiveData<String> get() = _recordTitle
     private val _recordTitle = MutableLiveData<String>()
@@ -95,6 +110,9 @@ class PostViewModel @Inject constructor(
     val videoUri: LiveData<Uri> get() = _videoUri
     private val _videoUri = MutableLiveData<Uri>()
 
+    val todayre : LiveData<String> get() = _todayre
+    private val _todayre = MutableLiveData<String>()
+
     init {
         _clickWather.value = "sun"
         _wather.value = "sun"
@@ -103,12 +121,48 @@ class PostViewModel @Inject constructor(
         _notPost.value = true
         _notVideo.value = true
         _notRecoard.value = true
+        _todayre.value = "new"
         _videoUri.value = Uri.parse("")
         _recordTitle.value = ""
         _recordContext.value = ""
         _listAndPage.value = "page"
         _boardListDate.value = ""
+        _photoChange.value = false
+        _remember.value = ""
+        _vidioName.value = ""
+        _todayName.value = ""
+        _videoPost.value = ""
     }
+
+    fun deletePhoto(title: String) = postRepository.deletePhoto(title)
+
+    fun remember(remember : String){
+        _remember.value =  remember
+    }
+
+    fun BoardListUri(photo : Uri){
+        _BoardListUri.value = photo
+    }
+
+    fun todayName(title : String){
+        _todayName.value = title
+    }
+
+    fun todayre(pageName : String){
+        _todayre.value = pageName
+    }
+
+    fun deleteVideo(title : String){
+        postRepository.deleteVideo(title)
+    }
+
+    fun videoPostPosition(title : String){
+        _videoPost.value = title
+    }
+
+    fun deleteToday(title : String) = postRepository.deleteToday(title)
+
+    fun deleteVideoPost(title : String ) = postRepository.deleteVideoPost(title)
 
     fun setListAndPageAndPicture(title : String, content : String,date : String,photois : Boolean){
         _recordTitle.value = title
@@ -124,6 +178,14 @@ class PostViewModel @Inject constructor(
 
     fun isImageTrue(){
         _isImageTrue.value = true
+    }
+
+    fun photoChange(){
+        _photoChange.value = true
+    }
+
+    fun videoName(name : String){
+        _vidioName.value = name
     }
 
     fun clickWhater(wather: String){
@@ -185,6 +247,8 @@ class PostViewModel @Inject constructor(
             android.util.Log.d("로그", "error!")
         }
 
+    fun deletePost(title : String) = postRepository.deletePost(title).addOnCanceledListener { Log.d("ok","ok") }
+
     fun setPost(post: Post) = postRepository.setPost(post)
         .addOnSuccessListener {
             Log.d("okok","is okay")
@@ -202,7 +266,7 @@ class PostViewModel @Inject constructor(
 
     fun setPhoto(file : Uri,filename : String){
         postRepository.setPhoto(filename).putFile(file).addOnSuccessListener {
-            Log.d("okok","upload ok")
+            Log.d("okok","upload okkkkkk")
         }
     }
 
