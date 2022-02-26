@@ -48,6 +48,30 @@
             app:layout_constraintTop_toBottomOf="@+id/title_textview2" />
 
         <TextView
+            android:id="@+id/textview8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="수정 l"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_bold"
+            android:text=" 삭제"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
             android:id="@+id/title_textview2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
